@@ -16,6 +16,16 @@ public class Personagem {
     private int nivel;
     private Double moedas;
 
+    public Personagem(@NotBlank(message = "campo obrigatório") String nome,
+            @Pattern(regexp = "guerreiro|mago|arqueiro", message = "Tipo inválido. Use: guerreiro, mago ou arqueiro") String classe,
+            @Min(value = 1, message = "O nível mínimo é 1") @Max(value = 99, message = "O nível máximo é 99") int nivel,
+            Double moedas) {
+        this.nome = nome;
+        this.classe = classe;
+        this.nivel = nivel;
+        this.moedas = moedas;
+    }
+    
     public String getNome() {
         return nome;
     }
@@ -28,6 +38,7 @@ public class Personagem {
     public Double getMoedas() {
         return moedas;
     }
+
 
     
 }

@@ -20,6 +20,16 @@ public class Item {
     private Double preco;
     private Personagem dono;
 
+    public Item(@NotBlank(message = "campo obrigatório") String nome,
+            @Pattern(regexp = "arma|armadura|poção|acessório", message = "Tipo inválido. Use: arma, armadura, poção ou acessório") String tipo,
+            @Pattern(regexp = "comum|raro|épico|lendário", message = "Raridade inválida. Use: comum, raro, épico ou lendário") String raridade,
+            Double preco, Personagem dono) {
+        this.nome = nome;
+        this.tipo = tipo;
+        this.raridade = raridade;
+        this.preco = preco;
+        this.dono = dono;
+    }
     
     public String getNome() {
         return nome;
